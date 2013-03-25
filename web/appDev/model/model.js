@@ -438,9 +438,13 @@
                         element.prop('checked', true);
                     else
                         element.prop('checked', false);
+                    // Trigger any onChange() events
+                    element.change();
                 } else if (element.is(':input')) {
                     // Not tested for radios
-                    element.val(value).trigger('AD.bindToForm');
+                    element.val(value);
+                    // Trigger any onChange() events
+                    element.change();
                 } else {
                     element.text(value);
                 }
